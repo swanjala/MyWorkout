@@ -26,5 +26,18 @@ public class ViewTests {
     public void test_that_image_view_loads_correctly() {
         onView(withId(R.id.iv_myworkoutlog)).check(matches(isDisplayed()));
     }
+    @Test
+    public void test_that_text_view_loads_correctly() {
+        onView(withId(R.id.tv_app_name)).check(matches(isDisplayed()));
+    }
+    @Test
+    public void test_that_guiding_test_loads_correctly() {
+        onView(withId(R.id.tv_guiding_tests)).check(matches(isDisplayed()));
+    }
+    @Test
+    public void test_that_email_entry_edit_texts_loads_correctly() {
+        onView(withId(R.id.tv_email_address)).check(matches(isDisplayed()));
+
+    }
 
 }
