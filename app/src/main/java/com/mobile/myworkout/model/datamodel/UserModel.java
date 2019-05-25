@@ -1,11 +1,10 @@
-package com.mobile.myworkout.model;
+package com.mobile.myworkout.model.datamodel;
 
 public class UserModel {
 
 
     private String email;
     private String password;
-
     private String gender;
 
 
