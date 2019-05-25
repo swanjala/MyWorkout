@@ -1,4 +1,4 @@
-package com.mobile.myworkout.views.fragments;
+package com.mobile.myworkout.view.fragments;
 
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mobile.myworkout.R;
-import com.mobile.myworkout.views.navigation.FragmentNavigator;
+import com.mobile.myworkout.view.navigation.FragmentNavigator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,11 +27,7 @@ public class  HomeFragment extends Fragment {
 
 
     private String emailAddress;
-    private FragmentTransaction fragmentTransaction;
-    private int mainFragmentContainer= R.id.main_container;
     FragmentNavigator fragmentNavigator = new FragmentNavigator();
-
-
 
     @Override
     public View onCreateView(LayoutInflater layoutInflater,
@@ -50,10 +46,6 @@ public class  HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        /* Set an onclick listener to on the parent view
-        * The user will be able to navigate to the next activity
-        * as long as they click on the area.
-        * */
 
         navigation_container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +57,8 @@ public class  HomeFragment extends Fragment {
                             Toast.LENGTH_LONG).show();
                 } else{
 
-                    /* Make a view model call to check if the email exists
+                    /* TODO
+                         Make a view model call to check if the email exists
                      *  */
                     if (emailAddress.equals("true")){
 
