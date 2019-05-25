@@ -1,16 +1,12 @@
-package com.mobile.myworkout;
+package com.mobile.myworkout.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.mobile.myworkout.fragments.HomeFragment;
+import com.mobile.myworkout.R;
+import com.mobile.myworkout.view.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,14 +15,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        HomeFragment homeFragment = new HomeFragment();
+        if (savedInstanceState != null) {
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+            Toast.makeText(this,"SavedInstanceState",
+                    Toast.LENGTH_LONG).show();
+           /*TODO
+            * Implement login/signup logic, contegent how I implement view model*/
+        } else {
 
-        fragmentManager.beginTransaction()
-                .add(R.id.main_container, homeFragment)
-                .commitAllowingStateLoss();
+            HomeFragment homeFragment = new HomeFragment();
 
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            fragmentManager.beginTransaction()
+                    .add(R.id.main_container, homeFragment)
+                    .commitAllowingStateLoss();
+        }
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
 }
