@@ -1,4 +1,4 @@
-package com.mobile.myworkout.views.fragments;
+package com.mobile.myworkout.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobile.myworkout.R;
-import com.mobile.myworkout.views.navigation.FragmentNavigator;
+import com.mobile.myworkout.view.navigation.FragmentNavigator;
 
 
 import butterknife.BindView;
