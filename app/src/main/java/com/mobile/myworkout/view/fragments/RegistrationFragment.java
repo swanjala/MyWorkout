@@ -1,4 +1,4 @@
-package com.mobile.myworkout.views.fragments;
+package com.mobile.myworkout.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -33,11 +33,6 @@ public class RegistrationFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         final FragmentManager fragmentManager = getFragmentManager();
 
-        /* Button press pops the stacked fragments. The current
-        * fragment which is at the top of the stack is removed
-        * and the previous cached fragment (which is at the top of
-        * the stack) is diaplayed
-        * */
         backPressImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
