@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/iv_myworkoutlog"
@@ -37,7 +35,7 @@
         android:id="@+id/tv_guiding_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="228dp"
+        android:layout_marginBottom="120dp"
         android:text="Start by entering your email address"
         android:textSize="20sp"
 
@@ -50,22 +48,36 @@
         android:id="@+id/tv_email_address"
         android:layout_width="324dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/colorAccent"
+        android:hint="Email address"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_password"
+        tools:layout_editor_absoluteY="462dp" />
+
+    <EditText
+        android:id="@+id/tv_password"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="156dp"
         android:backgroundTint="@color/colorAccent"
-        android:hint="Email address"
+        android:hint="Password"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="125dp"
-        android:layout_height="73dp"
+        android:layout_width="380dp"
+        android:layout_height="101dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -74,36 +86,64 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_email_address"
-        app:layout_constraintVertical_bias="0.555">
+        app:layout_constraintVertical_bias="0.949">
 
         <TextView
-            android:id="@+id/imageView2"
+            android:id="@+id/tv_login"
             android:layout_width="64dp"
             android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Next"
+            android:text="Log in "
             android:textColor="@color/colorAccent"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/img_login"
+            app:layout_constraintHorizontal_bias="0.947"
+            app:layout_constraintStart_toEndOf="@+id/img_cancel"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.473" />
+            app:layout_constraintVertical_bias="0.382" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="103dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginRight="140dp"
+            android:text="Cancel"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_cancel"
+            app:layout_constraintEnd_toStartOf="@+id/img_login"
+            app:layout_constraintTop_toTopOf="@+id/img_cancel"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img_cancel"
+            android:layout_width="42dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/backicon"
+            tools:layout_editor_absoluteY="23dp" />
+
+        <ImageView
+            android:id="@+id/img_login"
             android:layout_width="41dp"
             android:layout_height="41dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_login"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.272"
+            app:layout_constraintTop_toTopOf="@+id/tv_login"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@mipmap/nexticon" />
     </android.support.constraint.ConstraintLayout>
 
