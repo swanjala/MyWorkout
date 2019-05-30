@@ -19,4 +19,6 @@
     <string name="value_gender_data">gender</string>
     <string name="enter_password_promp">Enter password</string>
     <string name="password_length_prompt">Enter password more than 6 characters</string>
+    <string name="profile_card_hint_string">Key</string>
+    <string name="profile_card_tv_value_hint_text">Value</string>
 </resources>

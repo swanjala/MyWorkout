@@ -12,11 +12,11 @@
 
         <TextView
             android:id="@+id/tv_key"
-            android:layout_width="113dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:hint="Key"
+            android:layout_width="@dimen/profile_card_layout_width"
+            android:layout_height="@dimen/profile_card_layout_height"
+            android:layout_marginStart="@dimen/profile_card_margin_start"
+            android:layout_marginLeft="@dimen/profile_card_margin_left"
+            android:hint="@string/profile_card_hint_string"
             app:layout_constraintBottom_toBottomOf="@+id/tv_value"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_value"
@@ -25,11 +25,11 @@
         <TextView
             android:id="@+id/tv_value"
             android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginRight="48dp"
-            android:layout_marginBottom="8dp"
-            android:hint="Value"
+            android:layout_height="@dimen/profile_card_tv_value_height"
+            android:layout_marginEnd="@dimen/profile_card_tv_value_end_margin"
+            android:layout_marginRight="@dimen/profile_card_tv_value_margin_right"
+            android:layout_marginBottom="@dimen/profile_card_tv_value_margin_bottom"
+            android:hint="@string/profile_card_tv_value_hint_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
