@@ -5,7 +5,7 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.mobile.myworkout.activities.MainActivity;
+import com.mobile.myworkout.activities.LoginActivity;
 import com.mobile.myworkout.R;
 
 import org.junit.Before;
@@ -29,11 +29,11 @@ import static org.hamcrest.Matchers.startsWith;
     public class MainActivityViewTests {
 
         @Rule
-        public ActivityTestRule<MainActivity> mainActivityActivityTestRule =
-                new ActivityTestRule<>(MainActivity.class);
+        public ActivityTestRule<LoginActivity> mainActivityActivityTestRule =
+                new ActivityTestRule<>(LoginActivity.class);
 
         public static final Intent MAIN_ACTIVITY_INTENT
-                = new Intent(InstrumentationRegistry.getTargetContext(),MainActivity.class);
+                = new Intent(InstrumentationRegistry.getTargetContext(), LoginActivity.class);
 
         @Before
         public void init() {
