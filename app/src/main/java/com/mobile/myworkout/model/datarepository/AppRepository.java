@@ -48,6 +48,9 @@ public class AppRepository {
         new LoginTask(mApplication.getApplicationContext(), userModel).execute();
     }
 
+    /*WIP : the data flow intended is dependent on a working endpoint(currently broken),
+    * meaning that the data in the database would be outdated and not synced to the interned
+    * currently using Shared preferences*/
     public List<UserModel> fetchProfileData(String email) {
 
         return userDataAccessObject.getUserByEmail(email);
