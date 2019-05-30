@@ -1,23 +1,29 @@
 package com.mobile.myworkout.view.fragments;
 
+import android.annotation.SuppressLint;
+import android.arch.lifecycle.ViewModelProviders;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.mobile.myworkout.R;
-import com.mobile.myworkout.view.navigation.FragmentNavigator;
+import com.mobile.myworkout.view.utils.InputValidations;
+import com.mobile.myworkout.viewmodel.UserViewModel;
+
+import java.util.concurrent.ExecutionException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class  HomeFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     @BindView(R.id.tv_email_address)
     EditText tv_email_address;
@@ -25,61 +31,87 @@ public class  HomeFragment extends Fragment {
     @BindView(R.id.cl_next)
     ConstraintLayout navigation_container;
 
+    @BindView(R.id.pb_home)
+    ProgressBar home_progressbar;
 
     private String emailAddress;
-    FragmentNavigator fragmentNavigator = new FragmentNavigator();
+
 
     @Override
-    public View onCreateView(LayoutInflater layoutInflater,
+    public View onCreateView(@NonNull LayoutInflater layoutInflater,
                              ViewGroup viewContainer,
-                             Bundle savedInstanceState){
+                             Bundle savedInstanceState) {
 
         View view = layoutInflater.inflate(R.layout.fragment_main,
-                viewContainer,false);
-        ButterKnife.bind(this,view);
-        return  view;
+                viewContainer, false);
+        ButterKnife.bind(this, view);
+        return view;
 
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState){
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        UserViewModel userViewModel = ViewModelProviders
+                .of(this)
+                .get(UserViewModel.class);
+
+        home_progressbar.setVisibility(View.GONE);
+        home_progressbar.setIndeterminate(true);
 
 
-        navigation_container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emailAddress = tv_email_address.getText().toString();
-                Log.d("address",emailAddress);
-                if (emailAddress.equals("")){
-                    Toast.makeText(getContext(),"Email cannot be blank",
-                            Toast.LENGTH_LONG).show();
-                } else{
+        navigation_container.setOnClickListener(v -> {
+            emailAddress = tv_email_address.getText().toString();
 
-                    /* TODO
-                         Make a view model call to check if the email exists
-                     *  */
-                    if (emailAddress.equals("true")){
+            if (new InputValidations().isValidEmail(emailAddress)) {
 
-                       if (!fragmentNavigator.fragmentLoader(new LoginFragment(),
-                                getFragmentManager())){
-                           Toast.makeText(getContext(),"Unable to load login page",
-                                   Toast.LENGTH_LONG).show();
+                try {
+                    new EmailChecker(emailAddress)
+                            .execute(userViewModel).get();
 
-                       };
-
-                    } else {
-                        if(! fragmentNavigator.fragmentLoader(new RegistrationFragment(),
-                                getFragmentManager())){
-                            Toast.makeText(getContext(),"Unable to load registration page",
-                                    Toast.LENGTH_LONG).show();
-                        };
-
-                    }
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+            } else {
+                Toast.makeText(getContext(), "Enter a valid email address",
+                        Toast.LENGTH_LONG).show();
             }
+
         });
+
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private class EmailChecker extends AsyncTask<UserViewModel, Void, Boolean> {
+
+        String mEmailAddress;
+
+        EmailChecker(String email) {
+            this.mEmailAddress = email;
+        }
+
+        @Override
+        protected Boolean doInBackground(UserViewModel... params) {
+
+            params[0].findUserEmail(mEmailAddress, getFragmentManager());
+
+            return true;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            home_progressbar.setVisibility(View.VISIBLE);
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean complete) {
+            home_progressbar.setVisibility(View.GONE);
+        }
 
     }
 
