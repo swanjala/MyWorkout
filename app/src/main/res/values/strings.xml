@@ -27,4 +27,15 @@
     <string name="fragment_login_tv_password_text">Password</string>
     <string name="fragment_login_tv_login_nav_login_text">Log in</string>
     <string name="fragment_login_tv_cancel_text_cancel">Cancel</string>
+    <string name="fragment_main_tv_name_text">Myworkout GO</string>
+    <string name="fragment_main_tv_guiding_text_description">Start by entering your email address</string>
+    <string name="fragment_main_tv_email_text">Email address</string>
+    <string name="fragment_main_nav_constraint_tv_login_text">Next</string>
+    <string name="fragment_profile_button_logout_text_description">Log out</string>
+    <string name="fragment_registration_tv_app_help_text">Create a new account</string>
+    <string name="fragment_registration_tv_guiding_text_help_text">Fill out the form and sign up for free.</string>
+    <string name="fragment_registration_tv_email_address_hint">unregistered@email.com</string>
+    <string name="fragment_registration_tv_password_text">Password</string>
+    <string name="fragment_registration_constraint_tv_login_sign_up_text">Sign up</string>
+    <string name="fragment_registration_constraint_tv_cancel_text">Cancel</string>
 </resources>
