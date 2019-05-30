@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.mobile.myworkout.R;
 import com.mobile.myworkout.model.datamodel.UserModel;
 import com.mobile.myworkout.model.datarepository.api.APIManager;
 import com.mobile.myworkout.model.datarepository.networkutils.NetworkData;
@@ -56,21 +57,24 @@ public class EmailNetworkTask extends AsyncTask<UserModel, Void, Boolean> {
                             .getEmailAvailability());
 
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("email_availability", emailAvailability);
+                    editor.putBoolean(mContext.getString(R.string.key_email_availability),
+                            emailAvailability);
                     editor.commit();
 
-                    if (emailAvailability){
+                    if (emailAvailability) {
 
                         if (!fragmentNavigator.fragmentLoader(new LoginFragment(),
-                                mFragmentManager,params[0].getEmail())){
-                            Toast.makeText(mContext,"Unable to load login page",
+                                mFragmentManager, params[0].getEmail())) {
+                            Toast.makeText(mContext, mContext.getString(R.string
+                                            .fragment_login_loading_page_error),
                                     Toast.LENGTH_LONG).show();
                         }
 
                     } else {
-                        if(!fragmentNavigator.fragmentLoader(new RegistrationFragment(),
-                                mFragmentManager,params[0].getEmail())){
-                            Toast.makeText(mContext,"Unable to load registration page",
+                        if (!fragmentNavigator.fragmentLoader(new RegistrationFragment(),
+                                mFragmentManager, params[0].getEmail())) {
+                            Toast.makeText(mContext, mContext.getString(R.string
+                                            .fragment_registration_page_loading_error),
                                     Toast.LENGTH_LONG).show();
                         }
 

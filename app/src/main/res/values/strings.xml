@@ -6,4 +6,7 @@
     <string name="profile_fragment_error_message">Unable to load profile fragment</string>
     <string name="api_base_url">https://muse-pad.herokuapp.com/api/v1/</string>
     <string name="api_interceptor_auth_header">Authorization</string>
+    <string name="key_email_availability">email_availability</string>
+    <string name="fragment_login_loading_page_error">Unable to load login page</string>
+    <string name="fragment_registration_page_loading_error">Unable to load registration page</string>
 </resources>
