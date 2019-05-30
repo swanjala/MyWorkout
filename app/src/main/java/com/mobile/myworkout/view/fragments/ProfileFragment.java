@@ -8,7 +8,6 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +16,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mobile.myworkout.R;
-import com.mobile.myworkout.model.datamodel.UserModel;
 import com.mobile.myworkout.view.adapters.ProfileAdapter;
 import com.mobile.myworkout.view.navigation.FragmentNavigator;
 import com.mobile.myworkout.viewmodel.UserViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,29 +37,29 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.rv_user_details)
     RecyclerView rv_user_details;
 
-    private ProfileAdapter profileAdapter;
-
     HashMap<String, String> profileInfo =
             new HashMap<>();
 
-    ArrayList<HashMap<String,String>> profileData = new ArrayList<>();
+    ArrayList<HashMap<String, String>> profileData = new ArrayList<>();
 
     FragmentNavigator fragmentNavigator = new FragmentNavigator();
 
+    private ProfileAdapter profileAdapter;
 
     @Override
     public View onCreateView(LayoutInflater layoutInflater,
                              ViewGroup viewGroup,
-                             Bundle savedInstanceState){
+                             Bundle savedInstanceState) {
         View view = layoutInflater.inflate(R.layout.fragment_profile,
                 viewGroup, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         return view;
 
     }
+
     @SuppressLint("NewApi")
     @Override
-    public void onActivityCreated(Bundle savedInstanceState){
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
 
@@ -91,7 +88,7 @@ public class ProfileFragment extends Fragment {
 
         bt_logout.setOnClickListener(v -> {
 
-            if(userViewModel.logOutUser()) {
+            if (userViewModel.logOutUser()) {
 
                 if (!fragmentNavigator.fragmentLoader(new HomeFragment(),
                         getFragmentManager(), null)) {
