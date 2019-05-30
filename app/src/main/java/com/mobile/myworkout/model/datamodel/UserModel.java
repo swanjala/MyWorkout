@@ -3,9 +3,7 @@ package com.mobile.myworkout.model.datamodel;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-/*TODO
- - Depricate this and use a service
-* instead of persisting the user on DB*/
+/*Entity for user database */
 
 @Entity(tableName = "userTable")
 public class UserModel {
