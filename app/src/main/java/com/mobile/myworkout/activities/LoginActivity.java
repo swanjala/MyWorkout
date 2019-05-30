@@ -25,7 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
 
-        String authToken = preferences.getString("auth_token", "");
+        String authToken = preferences
+                .getString(this.getString(R.string.auth_token_key_string), "");
 
         /*Invoke the fragment navigator when the conditions are met, and
          * toasts a message when the fragment is not successfuly loaded */
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
             if (!fragmentNavigator.fragmentLoader(new ProfileFragment(),
                     fragmentManager, null)) {
                 Toast.makeText(this,
-                        "Unable to load the home page",
+                        this.getString(R.string.profile_fragment_error_message),
                         Toast.LENGTH_LONG).show();
 
             }
@@ -51,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!fragmentNavigator.fragmentLoader(new HomeFragment(),
                 fragmentManager, null)) {
             Toast.makeText(this,
-                    "Unable to load the home page",
+                    this.getString(R.string.toast_load_home_error_message),
                     Toast.LENGTH_LONG).show();
 
         }

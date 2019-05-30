@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mobile.myworkout.R;
 import com.mobile.myworkout.model.datarepository.networkutils.NetworkService;
 
 import java.io.IOException;
@@ -20,10 +21,12 @@ public class RetrofitInstance {
 
     public static NetworkService retrofitInstance(Context context){
 
-        String baseUrl = "https://muse-pad.herokuapp.com/api/v1/";
+        String baseUrl = context
+                .getString(R.string.api_base_url);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        final String token = sharedPreferences.getString("auth_token", "");
+        final String token = sharedPreferences.getString(context
+                .getString(R.string.auth_token_key_string), "");
 
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -31,7 +34,8 @@ public class RetrofitInstance {
 
         Interceptor interceptor = chain -> {
                 Request modifiedRequest = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer "+ token).build();
+                        .addHeader(context.getString(R.string.api_interceptor_auth_header),
+                                "Bearer "+ token).build();
 
                 return chain.proceed(modifiedRequest);
         };

@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.mobile.myworkout.R;
 import com.mobile.myworkout.activities.WorkoutActivity;
 import com.mobile.myworkout.model.datamodel.UserModel;
 import com.mobile.myworkout.model.datarepository.api.APIManager;
@@ -22,7 +24,9 @@ import retrofit2.Response;
 
 public class RegistrationTask extends AsyncTask<Void, Void, Boolean[]> {
 
+    //WIP: the data access object is not yet in use.
     private UserDataAccessObject mUserDataAccessObject;
+
     @SuppressLint("StaticFieldLeak")
     private Context mContext;
     private UserModel mUserModel;
@@ -47,35 +51,27 @@ public class RegistrationTask extends AsyncTask<Void, Void, Boolean[]> {
 
         call.enqueue(new Callback<NetworkData>() {
             @Override
-            public void onResponse(Call<NetworkData> call, Response<NetworkData> response) {
-
+            public void onResponse(@NonNull Call<NetworkData> call,
+                                   @NonNull Response<NetworkData> response) {
 
                 if (response.body() != null && response.body().getToken() != null) {
 
-
-                    Log.d("auth from reg", response.body().getToken());
                     SharedPreferences preferences = PreferenceManager.
                             getDefaultSharedPreferences(mContext);
                     SharedPreferences.Editor editor = preferences.edit();
+
                     editor.putString("auth_token", response.body().getToken());
                     editor.putString("email", response.body().getEmail());
                     editor.putString("gender", response.body().getGender());
                     editor.commit();
 
-
-//                    mUserDataAccessObject
-//                            .createNewUser(mUserModel);
-
-
-                    dataResult[0] = true;
-
                     Intent intent = new Intent(mContext, WorkoutActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(intent);
 
-                    Log.d("data res", String.valueOf(dataResult[0]));
                 } else {
-                    Toast.makeText(mContext,"Email already exists",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext,mContext.getString(R.string.toast_email_already_exists),
+                            Toast.LENGTH_LONG).show();
                 }
             }
 

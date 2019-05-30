@@ -28,7 +28,8 @@ public class WorkoutActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager
                 .getDefaultSharedPreferences(getApplicationContext());
 
-        String authToken = preferences.getString("auth_token", "");
+        String authToken = preferences
+                .getString(this.getString(R.string.auth_token_key_string), "");
 
         /*Naviagate to the right fragment if the user is not authenticated
          * */
