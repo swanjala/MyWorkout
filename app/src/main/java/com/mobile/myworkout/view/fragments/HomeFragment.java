@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
                 }
 
             } else {
-                Toast.makeText(getContext(), "Enter a valid email address",
+                Toast.makeText(getContext(), this.getString(R.string.email_valid_string),
                         Toast.LENGTH_LONG).show();
             }
 

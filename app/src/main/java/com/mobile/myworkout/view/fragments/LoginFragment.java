@@ -54,7 +54,7 @@ public class LoginFragment extends Fragment {
         UserModel userModel = new UserModel();
 
         if (getArguments() != null) {
-            tv_email.setText(getArguments().getString("email"));
+            tv_email.setText(getArguments().getString(this.getString(R.string.key_email)));
         }
 
 
@@ -74,8 +74,7 @@ public class LoginFragment extends Fragment {
 
             if (!fragmentNavigator.fragmentLoader(new HomeFragment(),
                     getFragmentManager(), null)) {
-                Toast.makeText(getContext(),
-                        "Unable to load the home page",
+                Toast.makeText(getContext(), this.getString(R.string.toast_load_home_error_message),
                         Toast.LENGTH_LONG).show();
 
             }

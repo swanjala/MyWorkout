@@ -77,17 +77,18 @@ public class RegistrationFragment extends Fragment {
                 userModel.setEmail(userEmail);
 
             } else {
-                Toast.makeText(getContext(), "Enter Valid email", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getString(R.string.email_valid_string)
+                        , Toast.LENGTH_LONG).show();
             }
 
 
             password = tv_password.getText().toString();
 
             if (password.equals("")) {
-                Toast.makeText(getContext(), "Enter password", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getString(R.string.enter_password_promp), Toast.LENGTH_LONG).show();
             } else if (password.length() < 6) {
                 Toast.makeText(getContext(),
-                        "Enter password more than 6 characters", Toast.LENGTH_LONG).show();
+                        getString(R.string.password_length_prompt), Toast.LENGTH_LONG).show();
 
             } else {
                 userModel.setPassword(password);
@@ -103,7 +104,7 @@ public class RegistrationFragment extends Fragment {
                     .getDefaultSharedPreferences(getContext());
             SharedPreferences.Editor editor = preferences.edit();
 
-            editor.putBoolean("email_availability", false);
+            editor.putBoolean(getString(R.string.key_email_availability), false);
             editor.commit();
 
             fragmentManager.popBackStack();

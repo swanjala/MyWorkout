@@ -14,4 +14,9 @@
     <string name="key_email_map_data">Email</string>
     <string name="tv_gender_label">Gender</string>
     <string name="tv_gender_map_data">Gender</string>
+    <string name="email_valid_string">Enter a valid email address</string>
+    <string name="key_email">email</string>
+    <string name="value_gender_data">gender</string>
+    <string name="enter_password_promp">Enter password</string>
+    <string name="password_length_prompt">Enter password more than 6 characters</string>
 </resources>

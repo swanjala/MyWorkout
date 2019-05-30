@@ -76,9 +76,14 @@ public class ProfileFragment extends Fragment {
                 .getDefaultSharedPreferences(getContext());
 
 
-        profileInfo.put("Email", preferences.getString("email", ""));
+        profileInfo.put(getString(R.string.key_email_map_data),
+                preferences.getString(getString(R.string.key_email), ""));
+
         profileData.add(profileInfo);
-        profileInfo.put("Gender", preferences.getString("gender", ""));
+
+        profileInfo.put(getString(R.string.tv_gender_map_data),
+                preferences.getString(getString(R.string.value_gender_data), ""));
+
         profileData.add(profileInfo);
 
         profileAdapter = new ProfileAdapter(getContext(), profileData);
@@ -92,8 +97,8 @@ public class ProfileFragment extends Fragment {
 
                 if (!fragmentNavigator.fragmentLoader(new HomeFragment(),
                         getFragmentManager(), null)) {
-                    Toast.makeText(getContext(),
-                            "Unable to load the home screen", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),getString(R.string.toast_load_home_error_message)
+                            , Toast.LENGTH_LONG).show();
                 }
             }
         });
