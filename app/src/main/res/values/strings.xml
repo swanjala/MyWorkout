@@ -21,4 +21,10 @@
     <string name="password_length_prompt">Enter password more than 6 characters</string>
     <string name="profile_card_hint_string">Key</string>
     <string name="profile_card_tv_value_hint_text">Value</string>
+    <string name="fragment_login_tv_app_name_text">Myworkout GO</string>
+    <string name="fragment_login_tv_guiding_text_display_text">Start by entering your email address</string>
+    <string name="fragment_login_tv_email_address_text_hint">Email address</string>
+    <string name="fragment_login_tv_password_text">Password</string>
+    <string name="fragment_login_tv_login_nav_login_text">Log in</string>
+    <string name="fragment_login_tv_cancel_text_cancel">Cancel</string>
 </resources>
