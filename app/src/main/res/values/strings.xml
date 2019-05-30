@@ -4,4 +4,6 @@
     <string name="auth_token_key_string">auth_token</string>
     <string name="toast_load_home_error_message">Unable to load the home page</string>
     <string name="profile_fragment_error_message">Unable to load profile fragment</string>
+    <string name="api_base_url">https://muse-pad.herokuapp.com/api/v1/</string>
+    <string name="api_interceptor_auth_header">Authorization</string>
 </resources>
