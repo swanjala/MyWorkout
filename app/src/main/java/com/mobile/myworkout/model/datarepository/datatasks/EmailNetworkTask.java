@@ -59,12 +59,6 @@ public class EmailNetworkTask extends AsyncTask<UserModel, Void, Boolean> {
                     editor.putBoolean("email_availability", emailAvailability);
                     editor.commit();
 
-
-//                    SharedPreferences preferences =
-//                            PreferenceManager.getDefaultSharedPreferences(mContext);
-
-                    //availableEmail  = preferences.getBoolean("email_availability",false);
-
                     if (emailAvailability){
 
                         if (!fragmentNavigator.fragmentLoader(new LoginFragment(),
@@ -81,8 +75,6 @@ public class EmailNetworkTask extends AsyncTask<UserModel, Void, Boolean> {
                         }
 
                     }
-
-
 
                 }
             }
