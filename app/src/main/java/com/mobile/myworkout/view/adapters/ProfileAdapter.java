@@ -68,12 +68,14 @@ public class ProfileAdapter extends
 
             if (position == 0) {
 
-                this.tv_key.setText("Email");
-                this.tv_value.setText(currentData.get("Email"));
+                this.tv_key.setText(context.getString(R.string.tv_key_set_text_email));
+                this.tv_value.setText(currentData.get(context.getString(R.string
+                        .key_email_map_data)));
 
             } else if (position == 1) {
-                this.tv_key.setText("Gender");
-                this.tv_value.setText(currentData.get("Gender"));
+                this.tv_key.setText(context.getString(R.string.tv_gender_label));
+                this.tv_value.setText(currentData.get(context
+                        .getString(R.string.tv_gender_map_data)));
             }
 
 
